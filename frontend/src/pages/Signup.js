@@ -71,7 +71,7 @@ function Signup() {
         setLoading(false);
         navigate("/login");
       } else {
-        localStorage.setItem("userInfo", JSON.stringify(data));
+        // localStorage.setItem("userInfo", JSON.stringify(data));
         toast.success("Signed Up successfully");
         setLoading(false);
         navigate("/login");

@@ -52,15 +52,14 @@ const GroupChatModal = ({ children }) => {
           Authorization: `Bearer ${user.token}`,
         },
       };
-      const { data } = await axios.get(
-        `http://localhost:5001/api/signup?search=${search}`,
-        config
-      );
-      console.log(data);
-      setLoading(false);
-      setSearchResult(data);
+      await fetch(`http://localhost:5001/api/user?search=${search}`, config)
+        .then((res) => res.json())
+        .then((data) => {
+          setLoading(false);
+          if (data.message !== "Invalid search keyword") setSearchResult(data);
+        });
     } catch (error) {
-      toast.error("Failed to Load the Search Results");
+      console.log(error);
     }
   };
 

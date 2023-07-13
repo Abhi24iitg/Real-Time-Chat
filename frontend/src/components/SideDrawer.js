@@ -75,7 +75,9 @@ function SideDrawer() {
         .then((res) => res.json())
         .then((data) => {
           setLoading(false);
-          setSearchResult(data);
+          if (data.message === "Invalid search keyword")
+            toast.warning("Invalid search keyword");
+          else setSearchResult(data);
         });
     } catch (error) {
       console.log(error);

@@ -51,16 +51,39 @@ const authUser = async (req, res) => {
 // All users Api
 // api/signup
 const allUsers = async (req, res) => {
-  const keyword = req.query.search
-    ? {
-        $or: [
-          { name: { $regex: req.query.search, $options: "i" } },
-          { email: { $regex: req.query.search, $options: "i" } },
-        ],
-      }
-    : {};
-  const users = await User.find(keyword).find({ _id: { $ne: req.user._id } });
-  res.send(users);
+  // console.log(req.query);
+  const keyword = req.query.search;
+  if (keyword && keyword.trim() !== "") {
+    const users = await User.find({
+      email: { $regex: new RegExp(`^.*${keyword}.*@`, "i") },
+    }).find({ _id: { $ne: req.user._id } });
+    res.status(200).json(users);
+  } else {
+    // Handle the case when the search keyword is empty or contains only spaces
+    res.status(400).json({ message: "Invalid search keyword" });
+  }
+  //   ? {
+  //       $or: [
+  //         { name: { $regex: req.query.search, $options: "i" } },
+  //         { email: { $regex: req.query.search, $options: "i" } },
+  //       ],
+  //     }
+  //   : {};
+  // const users = await User.find(keyword).find({ _id: { $ne: req.user._id } });
+  // res.send(users);
+};
+const searchUsers = async (req, res) => {
+  // console.log(req.query);
+  const keyword = req.query.search;
+  if (keyword && keyword.trim() !== "") {
+    const users = await User.find({
+      email: { $regex: req.query.search, $options: "i" },
+    }).find({ _id: { $ne: req.user._id } });
+    res.status(200).json(users);
+  } else {
+    // Handle the case when the search keyword is empty or contains only spaces
+    res.status(400).json({ message: "Invalid search keyword" });
+  }
 };
 
-module.exports = { registerUser, authUser, allUsers };
+module.exports = { registerUser, authUser, allUsers,searchUsers};
