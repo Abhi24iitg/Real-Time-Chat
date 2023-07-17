@@ -12,7 +12,7 @@ import axios from "axios";
 import { ArrowBackIcon } from "@chakra-ui/icons";
 import ScrollableChat from "./ScrollableChat";
 import Lottie from "react-lottie";
-import animationData from "./animations/tying.json";
+import animationData from "./animations/typing.json";
 
 import io from "socket.io-client";
 import UpdateGroupChatModal from "./UpdateGroupChat";
@@ -156,7 +156,10 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
             pb={3}
             px={2}
             width="100%"
-            fontFamily="Work sans"
+            fontFamily="Poppins"
+            fontWeight="600"
+            color="#000598"
+            backgroundColor="#aee3e7"
             display="flex"
             justifyContent={{ base: "space-between" }}
             alignItems="center"
@@ -191,7 +194,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
             flexDir="column"
             justifyContent="flex-end"
             padding={3}
-            backgroundColor="#E8E8E8"
+            backgroundColor="#a3c2ff"
             width="100%"
             height="100%"
             borderRadius="lg"
@@ -232,8 +235,9 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
               <Flex flexDir="row">
                 <Input
                   variant="filled"
-                  bg="#E0E0E0"
-                  placeholder="Enter a message.."
+                  border="1px solid red"
+                  bg="white"
+                  placeholder="Enter a message..."
                   value={newMessage}
                   onChange={typingHandler}
                 />
