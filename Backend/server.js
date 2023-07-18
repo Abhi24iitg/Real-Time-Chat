@@ -23,7 +23,7 @@ app.use("/message", messageRoutes);
 require("./connection");
 
 const server = require("http").createServer(app);
-const PORT = 5001;
+const PORT = process.env.port||5001;
 
 server.listen(PORT, () => {
   console.log("listening to port", PORT);
