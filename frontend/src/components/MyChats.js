@@ -23,7 +23,7 @@ const MyChats = ({ fetchAgain }) => {
         },
       };
 
-      const { data } = await axios.get("http://localhost:5001/chat", config);
+      const { data } = await axios.get("https://real-time-chat-g5dr.onrender.com/chat", config);
       setChats(data);
     } catch (error) {
       toast.warning("failed to load the chats");

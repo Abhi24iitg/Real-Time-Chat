@@ -15,7 +15,7 @@ function Login() {
   async function handleLogin(e) {
     e.preventDefault();
     setLoading(true);
-    const res = await fetch("http://localhost:5001/api/login", {
+    const res = await fetch("https://real-time-chat-g5dr.onrender.com/api/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

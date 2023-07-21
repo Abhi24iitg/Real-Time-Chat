@@ -1,5 +1,5 @@
 import { Box } from "@chakra-ui/react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Chatbox from "../components/ChatBox";
 import MyChats from "../components/MyChats";
 import SideDrawer from "../components/SideDrawer";
@@ -9,7 +9,12 @@ import "./Chat.css";
 const Chatpage = () => {
   const [fetchAgain, setFetchAgain] = useState(false);
   const { user } = ChatState();
-
+  useEffect(() => {
+    if (!window.location.hash) {
+      window.location = window.location + "#loaded";
+      window.location.reload();
+    }
+  }, []);
   return (
     <div className="chat">
       <div style={{ width: "100%" }}>

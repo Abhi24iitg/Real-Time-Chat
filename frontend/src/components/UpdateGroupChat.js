@@ -47,7 +47,7 @@ const UpdateGroupChatModal = ({ fetchMessages, fetchAgain, setFetchAgain }) => {
         },
       };
       const { data } = await axios.get(
-        `http://localhost:5001/api/signup?search=${search}`,
+        `https://real-time-chat-g5dr.onrender.com/api/signup?search=${search}`,
         config
       );
       console.log(data);
@@ -71,7 +71,7 @@ const UpdateGroupChatModal = ({ fetchMessages, fetchAgain, setFetchAgain }) => {
         },
       };
       const { data } = await axios.put(
-        `http://localhost:5001/chat/rename`,
+        `https://real-time-chat-g5dr.onrender.com/chat/rename`,
         {
           chatId: selectedChat._id,
           chatName: groupChatName,
@@ -112,7 +112,7 @@ const UpdateGroupChatModal = ({ fetchMessages, fetchAgain, setFetchAgain }) => {
         },
       };
       const { data } = await axios.put(
-        `http://localhost:5001/chat/groupadd`,
+        `https://real-time-chat-g5dr.onrender.com/chat/groupadd`,
         {
           chatId: selectedChat._id,
           userId: user1._id,
@@ -144,7 +144,7 @@ const UpdateGroupChatModal = ({ fetchMessages, fetchAgain, setFetchAgain }) => {
         },
       };
       const { data } = await axios.put(
-        `http://localhost:5001/chat/groupremove`,
+        `https://real-time-chat-g5dr.onrender.com/chat/groupremove`,
         {
           chatId: selectedChat._id,
           userId: user1._id,
