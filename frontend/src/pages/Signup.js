@@ -58,7 +58,7 @@ function Signup() {
       setLoading(false);
       return;
     } else {
-      const res = await fetch("https://real-time-chat-g5dr.onrender.com/api/signup", {
+      const res = await fetch("http://localhost:5001/api/signup", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

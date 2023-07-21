@@ -71,7 +71,7 @@ function SideDrawer() {
         },
       };
 
-      await fetch(`https://real-time-chat-g5dr.onrender.com/api/signup?search=${search}`, config)
+      await fetch(`http://localhost:5001/api/signup?search=${search}`, config)
         .then((res) => res.json())
         .then((data) => {
           setLoading(false);
@@ -97,7 +97,7 @@ function SideDrawer() {
         },
       };
       const { data } = await axios.post(
-        `https://real-time-chat-g5dr.onrender.com/chat`,
+        `http://localhost:5001/chat`,
         { userId },
         config
       );

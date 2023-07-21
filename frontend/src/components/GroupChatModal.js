@@ -52,7 +52,7 @@ const GroupChatModal = ({ children }) => {
           Authorization: `Bearer ${user.token}`,
         },
       };
-      await fetch(`https://real-time-chat-g5dr.onrender.com/api/user?search=${search}`, config)
+      await fetch(`http://localhost:5001/api/user?search=${search}`, config)
         .then((res) => res.json())
         .then((data) => {
           setLoading(false);
@@ -80,7 +80,7 @@ const GroupChatModal = ({ children }) => {
         },
       };
       const { data } = await axios.post(
-        `https://real-time-chat-g5dr.onrender.com/chat/group`,
+        `http://localhost:5001/chat/group`,
         {
           name: groupChatName,
           users: JSON.stringify(selectedUsers.map((u) => u._id)),
