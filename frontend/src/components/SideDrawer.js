@@ -4,11 +4,11 @@ import { Input } from "@chakra-ui/input";
 import { Box, Text } from "@chakra-ui/react";
 import axios from "axios";
 import ProfileModal from "./ProfileModal";
-import NotificationBadge from "react-notification-badge";
+import NotificationBadge from "@parthamk/notification-badge";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { getSender } from "./ChatLogics";
-import { Effect } from "react-notification-badge";
+import { Effect } from "@parthamk/notification-badge";
 import {
   Menu,
   MenuButton,
